@@ -75,6 +75,6 @@ def generate_html_from_excel(file_path, output_file):
 
 
 # Example usage
-input_file = r"D:\Users\caobo\Downloads\KEY ORGANIZERS.xlsx"
+input_file = r"D:\pytest\excel_input\KEY ORGANIZERS.xlsx"
 
-generate_html_from_excel(input_file, r"D:\Users\caobo\Downloads\team_members.html")
+generate_html_from_excel(input_file, r"D:\pytest\html_output\team_members.html")
