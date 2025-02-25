@@ -18,8 +18,17 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
         df = excel_data.parse(sheet)
         
         # Ensure the sheet contains the necessary columns
-        if 'Profile Photo' not in df.columns or 'Email' not in df.columns:
-            print(f"Skipping sheet '{sheet}' due to missing columns.")
+        if 'Email' not in df.columns:
+            print(f"Skipping sheet '{sheet}' due to missing 'Email' column.")
+            continue
+        
+        # Identify the correct profile photo column
+        profile_photo_col = 'Profile Photo'
+        if 'Profile Photo.1' in df.columns:
+            profile_photo_col = 'Profile Photo.1'
+        
+        if profile_photo_col not in df.columns:
+            print(f"Skipping sheet '{sheet}' due to missing profile photo column.")
             continue
         
         # Create a folder for each sheet
@@ -28,7 +37,7 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
             os.makedirs(sheet_folder)
         
         for _, row in df.iterrows():
-            image_url = row['Profile Photo']
+            image_url = row[profile_photo_col]
             email = row['Email']
             
             if pd.notna(image_url) and pd.notna(email):
@@ -38,7 +47,9 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
                     }
                     response = requests.get(image_url, cookies=cookie_jar, headers=headers, stream=True)
                     if response.status_code == 200:
-                        file_extension = os.path.splitext(urlparse(image_url).path)[-1] or ".jpg"
+                        file_extension = os.path.splitext(urlparse(image_url).path)[-1]
+                        if not file_extension or file_extension == "":
+                            file_extension = ".jpg"
                         file_name = f"{email.split('@')[0]}{file_extension}"
                         file_path = os.path.join(sheet_folder, file_name)
                         

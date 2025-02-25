@@ -21,52 +21,67 @@ def crop_face(input_folder_path, output_folder_path):
     configFile = os.path.join(model_folder, "deploy.prototxt")
     net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
     
-    images = os.listdir(input_folder_path)
-    print(f"Processing {len(images)} images...")
-    
-    for image in images:
-        image_path = os.path.join(input_folder_path, image)
-        img = cv2.imread(image_path)
-        height, width, _ = img.shape
+    for team_folder in os.listdir(input_folder_path):
+        team_input_path = os.path.join(input_folder_path, team_folder)
+        team_output_path = os.path.join(output_folder_path, team_folder)
         
-        # Preprocessing images for DNN detection
-        blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(300, 300), mean=(104.0, 177.0, 123.0))
-        net.setInput(blob)
-        detections = net.forward()
-        
-        if detections.shape[2] == 0:
-            print(f"No face found in {image_path}")
+        if not os.path.isdir(team_input_path):
             continue
         
-        for i in range(detections.shape[2]):
-            confidence = detections[0, 0, i, 2]
-            if confidence > 0.5:
-                box = detections[0, 0, i, 3:7] * np.array([width, height, width, height])
-                (x, y, x2, y2) = box.astype("int")
-                
-                # Adjust the face area size to keep the face in the center
-                expansion_factor = 2
-                w, h = x2 - x, y2 - y
-                new_w, new_h = int(w * expansion_factor), int(h * expansion_factor)
-                new_x = max(0, x - (new_w - w) // 2)
-                new_y = max(0, y - (new_h - h) // 2)
-                new_x2 = min(width, new_x + new_w)
-                new_y2 = min(height, new_y + new_h)
-                
-                cropped_img = img[new_y:new_y2, new_x:new_x2]
-                
-                # Make sure the cropped image is a square and expand it
-                squared_img = expand_image_to_square(cropped_img, target_size=512)
-                
-                # Process the file name, keep only the part before the email "@", and output in JPG format
-                base_name = os.path.splitext(image)[0]  # 去除扩展名
-                email_prefix = base_name.split('_')[0] if '_' in base_name else base_name
-                output_path = os.path.join(output_folder_path, f"{email_prefix}.jpg")
-                
-                # Save the file in JPG format
-                cv2.imwrite(output_path, squared_img, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
-                print(f"Saved cropped face to {output_path}")
-                break  # Only process the most likely face
+        # Create the corresponding output folder
+        if not os.path.exists(team_output_path):
+            os.makedirs(team_output_path)
+        
+        images = os.listdir(team_input_path)
+        print(f"Processing {len(images)} images in {team_folder}...")
+        
+        for image in images:
+            image_path = os.path.join(team_input_path, image)
+            img = cv2.imread(image_path)
+            if img is None:
+                print(f"Error reading {image_path}")
+                continue
+            
+            height, width, _ = img.shape
+            
+            # Preprocessing images for DNN detection
+            blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(300, 300), mean=(104.0, 177.0, 123.0))
+            net.setInput(blob)
+            detections = net.forward()
+            
+            if detections.shape[2] == 0:
+                print(f"No face found in {image_path}")
+                continue
+            
+            for i in range(detections.shape[2]):
+                confidence = detections[0, 0, i, 2]
+                if confidence > 0.5:
+                    box = detections[0, 0, i, 3:7] * np.array([width, height, width, height])
+                    (x, y, x2, y2) = box.astype("int")
+                    
+                    # Adjust the face area size to keep the face in the center
+                    expansion_factor = 2
+                    w, h = x2 - x, y2 - y
+                    new_w, new_h = int(w * expansion_factor), int(h * expansion_factor)
+                    new_x = max(0, x - (new_w - w) // 2)
+                    new_y = max(0, y - (new_h - h) // 2)
+                    new_x2 = min(width, new_x + new_w)
+                    new_y2 = min(height, new_y + new_h)
+                    
+                    cropped_img = img[new_y:new_y2, new_x:new_x2]
+                    
+                    # Make sure the cropped image is a square and expand it
+                    squared_img = expand_image_to_square(cropped_img, target_size=512)
+                    
+                    # Process the file name, keep only the part before the email "@", and output in JPG format
+                    base_name = os.path.splitext(image)[0]  # Remove extension
+                    email_prefix = base_name.split('_')[0] if '_' in base_name else base_name
+                    output_path = os.path.join(team_output_path, f"{email_prefix}.jpg")
+                    
+                    # Save the file in JPG format
+                    cv2.imwrite(output_path, squared_img, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
+                    print(f"Saved cropped face to {output_path}")
+                    break  # Only process the most likely face
 
 if __name__ == "__main__":
     input_folder = r"D:\pytest\photo_input"  
