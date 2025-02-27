@@ -5,12 +5,13 @@ import os
 file_path = "excel_input/Updated_KEY_ORGANIZERS.xlsx"
 photo_folder = "photo_output"
 output_file = "html_output/all_teams.html"
+log_file = "html_output/missing_profiles.log"
 
 # Load Excel file
 excel_data = pd.ExcelFile(file_path)
 sheet_names = excel_data.sheet_names  # Get all sheet names
 
-# Ensure output directory exists
+# Ensure output directories exist
 output_dir = os.path.dirname(output_file)
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -68,33 +69,57 @@ html_template = """
     <h1>All Team Members</h1>
 """
 
+# Create or clear the log file
+with open(log_file, "w", encoding="utf-8") as log:
+    log.write("Missing Profile Photo & LinkedIn Profile Log\n")
+
 # Process each sheet and generate HTML sections
 for sheet in sheet_names:
     df = excel_data.parse(sheet)
 
-    # Ensure required columns exist
-    if not {'Name', 'Email', 'Role', 'Profile Photo', 'LinkedIn Profile_y'}.issubset(df.columns):
-        print(f"Skipping sheet '{sheet}' due to missing columns.")
+    # 确保 Name, Email, Role 至少存在
+    required_columns = {'Name', 'Email', 'Role'}
+    if not required_columns.issubset(df.columns):
+        print(f"Skipping sheet '{sheet}' due to missing essential columns.")
         continue
+
+    # 如果 `Profile Photo` 或 `LinkedIn Profile_y` 不存在，添加空列
+    if 'Profile Photo' not in df.columns:
+        df['Profile Photo'] = ""
+    if 'LinkedIn Profile_y' not in df.columns:
+        df['LinkedIn Profile_y'] = ""
 
     html_template += f"<div class='team-section'><h2>{sheet} Team</h2><div class='team-container'>"
     
     for _, row in df.iterrows():
-        if pd.notna(row['Email']) and pd.notna(row['LinkedIn Profile_y']):
-            # Extract email prefix
-            email_prefix = row['Email'].split('@')[0]
+        name = row['Name']
+        email = row['Email']
+        role = row['Role']
+        profile_photo = row['Profile Photo']
+        linkedin_profile = row['LinkedIn Profile_y']
 
-            # Construct relative photo path
-            relative_photo_path = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
+        # 记录缺失信息到日志
+        with open(log_file, "a", encoding="utf-8") as log:
+            if not linkedin_profile or pd.isna(linkedin_profile) or linkedin_profile.lower() in ["nan", "none", ""]:
+                log.write(f"{email};")
 
-            html_template += f"""
-            <div class="team-member">
-                <img src="{relative_photo_path}" alt="{row['Name']}">
-                <h3>{row['Name']}</h3>
-                <p>{row['Role']}</p>
-                <a class="linkedin" href="{row['LinkedIn Profile_y']}" target="_blank">LinkedIn</a>
-            </div>
-            """
+        # Extract email prefix for photo naming
+        email_prefix = email.split('@')[0]
+
+        # Construct relative photo path
+        relative_photo_path = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
+
+        # 默认 LinkedIn 为空时不生成链接
+        linkedin_html = f'<a class="linkedin" href="{linkedin_profile}" target="_blank">LinkedIn</a>' if linkedin_profile else ""
+
+        html_template += f"""
+        <div class="team-member">
+            <img src="{relative_photo_path}" alt="{name}">
+            <h3>{name}</h3>
+            <p>{role}</p>
+            {linkedin_html}
+        </div>
+        """
     
     html_template += "</div></div>"
 
@@ -107,4 +132,5 @@ html_template += """
 with open(output_file, "w", encoding="utf-8") as file:
     file.write(html_template)
 
-print(f"HTML file generated: {output_file}")
+print(f"✅ HTML file generated: {output_file}")
+print(f"⚠️ Missing information log saved: {log_file}")
