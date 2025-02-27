@@ -4,7 +4,7 @@ import os
 # File paths
 file_path = "excel_input/Updated_KEY_ORGANIZERS.xlsx"
 photo_folder = "photo_input"
-output_file = "html_output/all_teams.html"
+output_file = "html_output/all_teams_compare.html"
 
 # Load Excel file
 excel_data = pd.ExcelFile(file_path)
@@ -85,7 +85,7 @@ for sheet in sheet_names:
             email_prefix = row['Email'].split('@')[0]
 
             # Construct relative photo path
-            relative_photo_path = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
+            relative_photo_path = f"../photo_input/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
 
             html_template += f"""
             <div class="team-member">

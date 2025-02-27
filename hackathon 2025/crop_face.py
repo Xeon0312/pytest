@@ -2,20 +2,8 @@ import numpy as np
 import cv2
 import os
 
-def expand_image_to_square(image, target_size=512, border_type=cv2.BORDER_REPLICATE):
-    h, w, _ = image.shape
-    max_dim = max(h, w)
-    pad_top = (max_dim - h) // 2
-    pad_bottom = max_dim - h - pad_top
-    pad_left = (max_dim - w) // 2
-    pad_right = max_dim - w - pad_left
-    
-    # Use the selected border fill method
-    padded_img = cv2.copyMakeBorder(image, pad_top, pad_bottom, pad_left, pad_right, border_type)
-    return cv2.resize(padded_img, (target_size, target_size), interpolation=cv2.INTER_AREA)
-
 def crop_face(input_folder_path, output_folder_path):
-    # Loading the DNN face detection model
+    # 加载 DNN 人脸检测模型
     model_folder = r"D:\pytest\face_models"
     modelFile = os.path.join(model_folder, "res10_300x300_ssd_iter_140000.caffemodel")
     configFile = os.path.join(model_folder, "deploy.prototxt")
@@ -28,7 +16,7 @@ def crop_face(input_folder_path, output_folder_path):
         if not os.path.isdir(team_input_path):
             continue
         
-        # Create the corresponding output folder
+        # 创建输出目录
         if not os.path.exists(team_output_path):
             os.makedirs(team_output_path)
         
@@ -44,7 +32,7 @@ def crop_face(input_folder_path, output_folder_path):
             
             height, width, _ = img.shape
             
-            # Preprocessing images for DNN detection
+            # 预处理图像用于 DNN 检测
             blob = cv2.dnn.blobFromImage(img, scalefactor=1.0, size=(300, 300), mean=(104.0, 177.0, 123.0))
             net.setInput(blob)
             detections = net.forward()
@@ -59,7 +47,7 @@ def crop_face(input_folder_path, output_folder_path):
                     box = detections[0, 0, i, 3:7] * np.array([width, height, width, height])
                     (x, y, x2, y2) = box.astype("int")
                     
-                    # Adjust the face area size to keep the face in the center
+                    # 调整人脸区域大小，使面部始终居中
                     expansion_factor = 2
                     w, h = x2 - x, y2 - y
                     new_w, new_h = int(w * expansion_factor), int(h * expansion_factor)
@@ -70,24 +58,36 @@ def crop_face(input_folder_path, output_folder_path):
                     
                     cropped_img = img[new_y:new_y2, new_x:new_x2]
                     
-                    # Make sure the cropped image is a square and expand it
-                    squared_img = expand_image_to_square(cropped_img, target_size=512)
+                    # 确保裁剪的图片是正方形，并在必要时扩展
+                    h_cropped, w_cropped, _ = cropped_img.shape
+                    if h_cropped == w_cropped:
+                        final_img = cv2.resize(cropped_img, (512, 512), interpolation=cv2.INTER_AREA)
+                    else:
+                        max_side = max(h_cropped, w_cropped)
+                        pad_top = (max_side - h_cropped) // 2
+                        pad_bottom = max_side - h_cropped - pad_top
+                        pad_left = (max_side - w_cropped) // 2
+                        pad_right = max_side - w_cropped - pad_left
+                        
+                        # 仅在图片尺寸不足时才使用扩展
+                        final_img = cv2.copyMakeBorder(cropped_img, pad_top, pad_bottom, pad_left, pad_right, cv2.BORDER_REPLICATE)
+                        final_img = cv2.resize(final_img, (512, 512), interpolation=cv2.INTER_AREA)
                     
-                    # Process the file name, keep only the part before the email "@", and output in JPG format
-                    base_name = os.path.splitext(image)[0]  # Remove extension
+                    # 处理文件名，只保留邮箱“@”前面的部分，并输出 JPG 格式
+                    base_name = os.path.splitext(image)[0]  # 去除扩展名
                     email_prefix = base_name.split('_')[0] if '_' in base_name else base_name
                     output_path = os.path.join(team_output_path, f"{email_prefix}.jpg")
                     
-                    # Save the file in JPG format
-                    cv2.imwrite(output_path, squared_img, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
+                    # 保存文件为 JPG 格式
+                    cv2.imwrite(output_path, final_img, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
                     print(f"Saved cropped face to {output_path}")
-                    break  # Only process the most likely face
+                    break  # 只处理最有可能的一个人脸
 
 if __name__ == "__main__":
     input_folder = r"D:\pytest\photo_input"  
     output_folder = r"D:\pytest\photo_output" 
     
-    # Create Output Directory
+    # 创建输出目录
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
     
