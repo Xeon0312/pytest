@@ -62,9 +62,10 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
                 except Exception as e:
                     print(f"Error downloading {image_url}: {e}")
 
-# Example usage
-input_file = r"D:\pytest\excel_input\Updated_KEY_ORGANIZERS.xlsx"  
-output_folder = r"D:\pytest\photo_input" 
-cookie_file = r"D:\cookies.txt"
+if __name__ == "__main__":
+    # Example usage
+    input_file = r"D:\pytest\excel_input\Updated_KEY_ORGANIZERS.xlsx"  
+    output_folder = r"D:\pytest\photo_input" 
+    cookie_file = r"D:\cookies.txt"
 
-download_images_from_excel(input_file, output_folder, cookie_file)
+    download_images_from_excel(input_file, output_folder, cookie_file)
