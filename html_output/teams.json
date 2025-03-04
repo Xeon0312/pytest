@@ -1,4 +1,3 @@
-import { FaTwitter, FaLinkedin } from "react-icons/fa";
  
 const teams = [
   {
