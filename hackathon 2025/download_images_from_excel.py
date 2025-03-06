@@ -66,6 +66,8 @@ if __name__ == "__main__":
     # Example usage
     input_file = r"D:\pytest\excel_input\Updated_KEY_ORGANIZERS.xlsx"  
     output_folder = r"D:\pytest\photo_input" 
-    cookie_file = r"D:\cookies.txt"
+    # cookie_file = r"D:\cookies.txt"
+    
+    cookie_file = r"D:\drive.google.com_cookies.txt"
 
     download_images_from_excel(input_file, output_folder, cookie_file)

@@ -101,7 +101,7 @@ for sheet in sheet_names:
         # 记录缺失信息到日志
         with open(log_file, "a", encoding="utf-8") as log:
             if not linkedin_profile or pd.isna(linkedin_profile) or linkedin_profile.lower() in ["nan", "none", ""]:
-                log.write(f"{email};")
+                log.write(f"{email};\n")
 
         # Extract email prefix for photo naming
         email_prefix = email.split('@')[0]
