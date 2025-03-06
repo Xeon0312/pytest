@@ -4,6 +4,44 @@ import requests
 from http.cookiejar import MozillaCookieJar
 from urllib.parse import urlparse
 
+import re
+from urllib.parse import urlparse, parse_qs
+
+def convert_drive_link_to_direct(url: str) -> str:
+    """
+    将常见的 Google Drive 链接转换为可直接下载的地址。
+    目前支持:
+      1) https://drive.google.com/file/d/<FILE_ID>/view?usp=sharing
+      2) https://drive.google.com/open?id=<FILE_ID>
+    转换后生成:
+      https://drive.google.com/uc?export=download&id=<FILE_ID>
+
+    如果链接不符合这两种模式，则直接返回原链接。
+    """
+    # 0) 如果不是字符串，就无需处理，直接返回
+    if not isinstance(url, str):
+        return url
+    
+    # 1) 先尝试匹配 https://drive.google.com/file/d/<FILE_ID>/view...
+    pattern_file_d = r"https://drive\.google\.com/file/d/([^/]+)/view"
+    match = re.search(pattern_file_d, url)
+    if match:
+        file_id = match.group(1)
+        direct_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+        return direct_url
+
+    # 2) 再尝试匹配 https://drive.google.com/open?id=<FILE_ID>
+    parsed = urlparse(url)
+    if "drive.google.com" in parsed.netloc and parsed.path == "/open":
+        query_params = parse_qs(parsed.query)
+        if "id" in query_params:
+            file_id = query_params["id"][0]
+            direct_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+            return direct_url
+    
+    # 如果都不符合，就返回原链接
+    return url
+
 def download_images_from_excel(file_path, output_folder, cookie_file):
     # Load the Excel file
     excel_data = pd.ExcelFile(file_path)
@@ -38,6 +76,7 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
         
         for _, row in df.iterrows():
             image_url = row[profile_photo_col]
+            image_url = convert_drive_link_to_direct(image_url)
             email = row['Email']
             
             if pd.notna(image_url) and pd.notna(email):
@@ -66,8 +105,8 @@ if __name__ == "__main__":
     # Example usage
     input_file = r"D:\pytest\excel_input\Updated_KEY_ORGANIZERS.xlsx"  
     output_folder = r"D:\pytest\photo_input" 
-    # cookie_file = r"D:\cookies.txt"
+    cookie_file = r"D:\cookies.txt"
     
-    cookie_file = r"D:\drive.google.com_cookies.txt"
+    # cookie_file = r"D:\drive.google.com_cookies.txt"
 
     download_images_from_excel(input_file, output_folder, cookie_file)

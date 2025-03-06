@@ -140,6 +140,22 @@ const teams = [
         ]
       },
       {
+        imageSrc: "../photo_output/OPERATIONS_TEAM/sanjan1.jpg",
+        name: "Sanjan",
+        description: "nan",
+        socialLinks: [
+
+        ]
+      },
+      {
+        imageSrc: "../photo_output/OPERATIONS_TEAM/ssaraswati.jpg",
+        name: "Soumya Saraswati",
+        description: "nan",
+        socialLinks: [
+
+        ]
+      },
+      {
         imageSrc: "../photo_output/OPERATIONS_TEAM/kvaswani1.jpg",
         name: "Khushi Ajit Vaswani",
         description: "Manager, Microcredentials",
@@ -153,22 +169,6 @@ const teams = [
         description: "Operations Officer",
         socialLinks: [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/ramesh-banjade-3b80261b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" }
-        ]
-      },
-      {
-        imageSrc: "../photo_output/OPERATIONS_TEAM/bneupane9.jpg",
-        name: "Biplav Neupane",
-        description: "Operations Officer",
-        socialLinks: [
-
-        ]
-      },
-      {
-        imageSrc: "../photo_output/OPERATIONS_TEAM/slama12.jpg",
-        name: "Sagar Yonjan",
-        description: "Operations Officer",
-        socialLinks: [
-
         ]
       },
     ]
@@ -256,22 +256,6 @@ const teams = [
         ]
       },
       {
-        imageSrc: "../photo_output/PARTNER_EXPERIENCE_TEAM/apal21.jpg",
-        name: "Abhishek Pal",
-        description: "Partner Exp.  Officer",
-        socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/abhishekpalbly" }
-        ]
-      },
-      {
-        imageSrc: "../photo_output/PARTNER_EXPERIENCE_TEAM/mkgandhara.jpg",
-        name: "Mankomal Kaur Gandhara",
-        description: "Partner Exp.  Officer",
-        socialLinks: [
-        { icon: FaLinkedin, url: "https://www.linkedin.com/in/mankomal-kaur-gandhara-080b6117a/" }
-        ]
-      },
-      {
         imageSrc: "../photo_output/PARTNER_EXPERIENCE_TEAM/jvakil.jpg",
         name: "Jay Vijaykumar Vakil",
         description: "Manager, Government Relations",
@@ -284,7 +268,7 @@ const teams = [
         name: "Subhankar Gon",
         description: "Partner Exp.  Officer",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/subhankargon/" }
         ]
       },
       {
@@ -330,7 +314,7 @@ const teams = [
         name: "Tomisin Jephthah Ojaokomo",
         description: "Discord & Ticketing System Manager",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "www.linkedin.com/in/tomisin-ojaokomo" }
         ]
       },
       {
@@ -347,14 +331,6 @@ const teams = [
         description: "Student Sucess Officer",
         socialLinks: [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/susma-thapa-1765a8312" }
-        ]
-      },
-      {
-        imageSrc: "../photo_output/STUDENT_SUCCESS_TEAM/wdifernando.jpg",
-        name: "W Dinithi Indrachaya Fernando",
-        description: "Student Sucess Officer",
-        socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/dinithi-fernando-972029136" }
         ]
       },
       {
@@ -402,7 +378,7 @@ const teams = [
         name: "Sarthak Gupta",
         description: "Student Sucess Officer",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/s4rthak-gupta/" }
         ]
       },
       {
@@ -418,7 +394,7 @@ const teams = [
         name: "Utpal Manishchandra Prajapati",
         description: "Student Sucess Officer",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "www.linkedin.com/in/utpal-prajapati-191a391a8" }
         ]
       },
       {
@@ -440,6 +416,14 @@ const teams = [
       {
         imageSrc: "../photo_output/STUDENT_SUCCESS_TEAM/rhmohamed1.jpg",
         name: "Ruhail Hamza Mohamed",
+        description: "Student Sucess Officer",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/ruhail-hamza-mohamed-6a94b8203/" }
+        ]
+      },
+      {
+        imageSrc: "../photo_output/STUDENT_SUCCESS_TEAM/aj.adeebajaved.jpg",
+        name: "Adeeba Javed",
         description: "Student Sucess Officer",
         socialLinks: [
 
@@ -488,7 +472,7 @@ const teams = [
         name: "Siddhi Patel",
         description: "Business Analyst",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/siddhipatel10/" }
         ]
       },
       {
@@ -576,7 +560,7 @@ const teams = [
         name: "Vladyslav Savchyn",
         description: "Backend Tester",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/vsavchyn/" }
         ]
       },
     ]
@@ -626,6 +610,14 @@ const teams = [
         ]
       },
       {
+        imageSrc: "../photo_output/MARKETING_&_COMMUNICATIONS_TEAM/nallamatishivani18.jpg",
+        name: "Shivani Nallamati ",
+        description: "Copywriter",
+        socialLinks: [
+
+        ]
+      },
+      {
         imageSrc: "../photo_output/MARKETING_&_COMMUNICATIONS_TEAM/jwong301.jpg",
         name: "Justin Wong",
         description: "Copywriter",
@@ -654,7 +646,7 @@ const teams = [
         name: "Arafat Ahmed Ansari",
         description: "Project Manager, Marketing",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/arfat-ahmed-ansari/" }
         ]
       },
       {
@@ -697,6 +689,14 @@ const teams = [
 
         ]
       },
+      {
+        imageSrc: "../photo_output/MARKETING_&_COMMUNICATIONS_TEAM/srajkumar9.jpg",
+        name: "Sandeep Rajkumar",
+        description: "Videographer/Video editor",
+        socialLinks: [
+
+        ]
+      },
     ]
   },
   {
@@ -732,7 +732,7 @@ const teams = [
         name: "Umut Deniz Eryigit",
         description: "Motion Graphics",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/deniz-eryigit-2bbb69293/" }
         ]
       },
       {
@@ -818,7 +818,7 @@ const teams = [
         name: "Cleo Buenaventura",
         description: "Consultant",
         socialLinks: [
-
+        { icon: FaLinkedin, url: "linkedin.com/in/cleo-buenaventura" }
         ]
       },
     ]
