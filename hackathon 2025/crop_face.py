@@ -47,16 +47,47 @@ def crop_face(input_folder_path, output_folder_path):
                     box = detections[0, 0, i, 3:7] * np.array([width, height, width, height])
                     (x, y, x2, y2) = box.astype("int")
                     
-                    # 调整人脸区域大小，使面部始终居中
+                    # 调整人脸区域大小，使面部始终居中，且保持正方形
                     expansion_factor = 2
-                    w, h = x2 - x, y2 - y
-                    new_w, new_h = int(w * expansion_factor), int(h * expansion_factor)
-                    new_x = max(0, x - (new_w - w) // 2)
-                    new_y = max(0, y - (new_h - h) // 2)
-                    new_x2 = min(width, new_x + new_w)
-                    new_y2 = min(height, new_y + new_h)
-                    
+
+                    # 原始人脸框的宽和高
+                    w = x2 - x
+                    h = y2 - y
+
+                    # 以更长的一边为基准进行扩展，确保最后区域是正方形
+                    side = int(max(w, h) * expansion_factor)
+
+                    # 计算人脸框中心
+                    center_x = x + w // 2
+                    center_y = y + h // 2
+
+                    # 根据正方形 side 计算新的起始和结束点
+                    new_x = center_x - side // 2
+                    new_y = center_y - side // 2
+                    new_x2 = new_x + side
+                    new_y2 = new_y + side
+
+                    # 边界检查，防止超出原图范围
+                    if new_x < 0:
+                        new_x = 0
+                        new_x2 = side  # 若超出左边界，则让左边从0开始
+                    if new_y < 0:
+                        new_y = 0
+                        new_y2 = side  # 若超出上边界，则让上边从0开始
+                    if new_x2 > width:
+                        new_x2 = width
+                        new_x = width - side  # 右边超出时，让方形向左移动
+                    if new_y2 > height:
+                        new_y2 = height
+                        new_y = height - side  # 底部超出时，让方形向上移动
+
+                    # 再次检查，避免因图太小导致 new_x 或 new_y 依然小于0
+                    new_x = max(0, new_x)
+                    new_y = max(0, new_y)
+
+                    # 此时 (new_x, new_y) ~ (new_x2, new_y2) 就是正方形区域
                     cropped_img = img[new_y:new_y2, new_x:new_x2]
+
                     
                     # 确保裁剪的图片是正方形，并在必要时扩展
                     h_cropped, w_cropped, _ = cropped_img.shape
