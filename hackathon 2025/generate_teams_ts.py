@@ -1,6 +1,18 @@
 import pandas as pd
 import os
 
+# ------ 新增：将字符串转为 camelCase 的函数 ------
+def to_camel_case(s: str) -> str:
+    """
+    将给定字符串转成 camelCase 的形式。
+    例如："TEAM NAME" -> "teamName", "human resources" -> "humanResources"
+    """
+    words = s.split()
+    if not words:
+        return ''
+    # 第一个单词全小写，后面的单词首字母大写
+    return words[0].lower() + ''.join(word.capitalize() for word in words[1:])
+
 # Paths
 excel_file_path = "excel_input/Updated_KEY_ORGANIZERS.xlsx"
 ts_output_file = "ts_output/teams.ts"
@@ -21,6 +33,9 @@ with open(log_file, "w", encoding="utf-8") as log:
 ts_content = "const teams = [\n"
 
 for sheet in sheet_names:
+    # 将工作表名称转为 camelCase，仅在 teamName 与 teamDescription 中使用
+    camel_sheet = to_camel_case(sheet)
+
     df = excel_data.parse(sheet)
 
     # Ensure required columns exist
@@ -33,10 +48,15 @@ for sheet in sheet_names:
     if 'Profile Photo' not in df.columns:
         df['Profile Photo'] = ""
     if 'LinkedIn Profile_y' not in df.columns:
-        df['LinkedIn Profile'] = ""
+        df['LinkedIn Profile_y'] = ""
 
     # Add team information
-    ts_content += f"  {{\n    teamName: \"{sheet}\",\n    teamDescription: \"This is {sheet}'s description.\",\n    members: [\n"
+    ts_content += (
+        f"  {{\n"
+        f"    teamName: \"{camel_sheet}\",\n"  # 用 camelCase
+        f"    teamDescription: \"This is {camel_sheet}'s description.\",\n"  # 同上
+        f"    members: [\n"
+    )
 
     for _, row in df.iterrows():
         name = row['Name']
@@ -48,7 +68,7 @@ for sheet in sheet_names:
         # Extract email prefix for naming images
         email_prefix = email.split('@')[0]
 
-        # **Updated Image Path Format**
+        # **保留原本的路径**（使用原始 sheet 名替换空格为下划线）
         image_src = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
 
         # Record missing information in the log

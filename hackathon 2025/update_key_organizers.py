@@ -23,6 +23,9 @@ def update_key_organizers(hackathon_file_path, key_organizers_file_path, updated
             key_organizers_df = key_organizers_df.merge(hackathon_df[['Email', 'Upload Your Profile Photo', 'LinkedIn Profile']], on='Email', how='left')
             key_organizers_df.rename(columns={'Upload Your Profile Photo': 'Profile Photo'}, inplace=True)
         
+        if 'Name' in key_organizers_df.columns:
+            key_organizers_df.drop_duplicates(subset=['Name'], keep='first', inplace=True)
+        
         updated_sheets[sheet] = key_organizers_df
     
     with pd.ExcelWriter(updated_file_path, engine='xlsxwriter') as writer:
