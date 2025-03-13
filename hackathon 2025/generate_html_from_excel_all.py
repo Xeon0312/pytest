@@ -104,7 +104,9 @@ for sheet in sheet_names:
                 log.write(f"{name}: {email};\n")
 
         # Extract email prefix for photo naming
+        
         email_prefix = email.split('@')[0]
+        
 
         # Construct relative photo path
         relative_photo_path = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"

@@ -21,7 +21,7 @@ def clean_and_convert_google_sheet(sheet_id: str, sheet_gid: str, output_file: s
 
     valid_teams = {
         "LEADERS", "OPERATIONS TEAM", "FINANCE TEAM", "PARTNER EXPERIENCE TEAM",
-        "STUDENT SUCCESS TEAM", "IT DEVELOPMENT TEAM", "MARKETING & COMMUNICATIONS TEAM",
+        "STUDENT SUCCESS TEAM", "REGISTRATION TEAM","IT DEVELOPMENT TEAM", "MARKETING & COMMUNICATIONS TEAM",
         "CREATIVES TEAM", "CONSULTANTS", "ISSUE MANAGEMENT TEAM"
     }
 
@@ -39,6 +39,7 @@ def clean_and_convert_google_sheet(sheet_id: str, sheet_gid: str, output_file: s
             break
 
         # 识别新的团队标题（如果是有效团队，则切换 current_team）
+        # print(first_col_value)
         if first_col_value in valid_teams:
             current_team = first_col_value
             sheets_data[current_team] = []
