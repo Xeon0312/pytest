@@ -728,7 +728,7 @@ export const teams = [
         name: "Zoe Lara Denise Lerin",
         description: "Graphics Designer",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/ zoe-lara-denise-lerin-7b94a634a" }
+        { icon: FaLinkedin, url: "www.linkedin.com/in/zoe-lara-denise-lerin-7b94a634a" }
         ]
       },
       {
