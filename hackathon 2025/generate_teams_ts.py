@@ -66,11 +66,13 @@ for sheet in sheet_names:
         })
 
     all_members[sheet] = members_list
-
+    
+'''
 # ---------- 合并 "Registration Team" 到 "Student Success" ------------
 if "Registration Team" in all_members and "Student Success" in all_members:
     all_members["Student Success"].extend(all_members["Registration Team"])
     del all_members["Registration Team"]
+'''
 
 # ---------- 对团队名称进行 Title Case，并对 "IT" 特殊处理 ----------
 def to_title_case_team_name(s: str) -> str:
