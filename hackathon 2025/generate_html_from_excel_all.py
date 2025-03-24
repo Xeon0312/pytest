@@ -95,7 +95,7 @@ for sheet in sheet_names:
         name = row['Name']
         email = row['Email']
         role = row['Role']
-        profile_photo = row['Profile Photo']
+        profile_photo = row['Profile Photo Y']
         linkedin_profile = row['LinkedIn Profile_y']
 
          # 第三个功能：如果 LinkedIn Profile 缺少 'https://'，则补全
@@ -110,13 +110,14 @@ for sheet in sheet_names:
                 log.write(f"{name}: {email};\n")
 
         # Extract email prefix for photo naming
-        
+        print(profile_photo)
         email_prefix = email.split('@')[0]
         
 
         # Construct relative photo path
         relative_photo_path = f"../photo_output/{sheet.replace(' ', '_')}/{email_prefix}.jpg"
-
+        if profile_photo and str(profile_photo).lower()  in ["nan", "none", ""]:
+            relative_photo_path = f"../photo_output/null.jpg"
         # 默认 LinkedIn 为空时不生成链接
         linkedin_html = f'<a class="linkedin" href="{linkedin_profile}" target="_blank">LinkedIn</a>' if linkedin_profile else ""
 
