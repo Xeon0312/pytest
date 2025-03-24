@@ -654,14 +654,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/safal-maharjan-704588249" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/vlukhad.jpg",
-        // name: "Vanshil Lukhad",
-        // description: "Videographer/Video editor",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/vlukhad.jpg",
+        name: "Vanshil Lukhad",
+        description: "Videographer/Video editor",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/vanshil-lukhad-8a76412b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" }
+        ]
+      },
       {
         imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/kali64.jpg",
         name: "Kaifee Ali",
@@ -670,14 +670,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/kaifee-ali-23a3aa7a/" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/srajkumar9.jpg",
-        // name: "Sandeep Rajkumar",
-        // description: "Videographer/Video editor",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/srajkumar9.jpg",
+        name: "Sandeep Rajkumar",
+        description: "Videographer/Video editor",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/sandeep-rajkumar/" }
+        ]
+      },
       {
         imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/jasiedu1.jpg",
         name: "Justice Asiedu",
