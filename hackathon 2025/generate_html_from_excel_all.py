@@ -98,6 +98,12 @@ for sheet in sheet_names:
         profile_photo = row['Profile Photo']
         linkedin_profile = row['LinkedIn Profile_y']
 
+         # 第三个功能：如果 LinkedIn Profile 缺少 'https://'，则补全
+        if linkedin_profile and str(linkedin_profile).lower() not in ["nan", "none", ""]:
+            # 若不以 http:// 或 https:// 开头，就加上 https://
+            if not (linkedin_profile.startswith("http://") or linkedin_profile.startswith("https://")):
+                linkedin_profile = "https://" + linkedin_profile
+
         # 记录缺失信息到日志
         with open(log_file, "a", encoding="utf-8") as log:
             if not linkedin_profile or pd.isna(linkedin_profile) or linkedin_profile.lower() in ["nan", "none", ""]:
