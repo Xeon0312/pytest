@@ -55,7 +55,7 @@ def download_images_from_excel(file_path, output_folder, cookie_file):
             continue
 
         # 识别 profile photo 列名
-        profile_photo_col = 'Profile Photo'
+        profile_photo_col = 'Profile Photo Y'
         if 'Profile Photo.1' in df.columns:
             profile_photo_col = 'Profile Photo.1'
 

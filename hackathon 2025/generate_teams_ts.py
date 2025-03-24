@@ -42,7 +42,7 @@ for sheet in sheet_names:
         name = row['Name']
         email = row['Email']
         role = row['Role']
-        profile_photo = row['Profile Photo']
+        profile_photo = row['Profile Photo Y']
         linkedin_profile = row['LinkedIn Profile_y']
 
         # 记录缺失信息到日志
@@ -66,24 +66,35 @@ for sheet in sheet_names:
         })
 
     all_members[sheet] = members_list
-    
-'''
-# ---------- 合并 "Registration Team" 到 "Student Success" ------------
-if "Registration Team" in all_members and "Student Success" in all_members:
-    all_members["Student Success"].extend(all_members["Registration Team"])
-    del all_members["Registration Team"]
-'''
 
 # ---------- 对团队名称进行 Title Case，并对 "IT" 特殊处理 ----------
 def to_title_case_team_name(s: str) -> str:
+    """
+    将团队名称做基本的 Title Case 处理，如:
+    - "team hr" -> "Team Hr"
+    - "IT dev"  -> "IT Dev"
+    并且如果是 "Leaders"，改成 "Leadership"。
+    """
+    # 先分割单词并做首字母大写
     words = s.split()
     words = [w.capitalize() for w in words]
+
+    # 特殊处理: 如果第一个词是 "It"，改成 "IT"
     if len(words) >= 1 and words[0].lower() == "it":
         words[0] = "IT"
-    return " ".join(words)
+
+    title_str = " ".join(words)
+
+    # 需求1：若团队名称是"Leaders"，改成"Leadership"
+    # 这里为了简单，直接做完全匹配
+    if title_str.lower() == "leaders":
+        title_str = "Leadership"
+
+    return title_str
 
 # ---------- 生成最终的 TypeScript 文件 ----------
-ts_content = "export const teams = [\n"
+ts_content = "import { FaGithub, FaLinkedin } from \"react-icons/fa\";\n"
+ts_content += "const teams = [\n"
 
 for sheet in sheet_names:
     if sheet not in all_members:
@@ -99,17 +110,30 @@ for sheet in sheet_names:
         name = member["name"]
         role = member["role"]
         linkedin_profile = member["linkedin"]
+        image_src = member["imageSrc"]
+        is_missing_photo = member["profilePhotoMissing"]
 
         # 若 LinkedIn 为空，则不输出 socialLinks
         social_links = ""
         if linkedin_profile and str(linkedin_profile).lower() not in ["nan", "none", ""]:
             social_links = f"        {{ icon: FaLinkedin, url: \"{linkedin_profile}\" }}"
 
-        
-        image_src_line = f"imageSrc: \"{member['imageSrc']}\","
-
-        ts_content += f"""      {{
-        {image_src_line}
+        # 需求2：若缺失 Profile Photo，则将整段成员代码注释掉
+        # 否则正常输出
+        if is_missing_photo:
+            # 用多行注释的方式将整个块包裹起来
+            ts_content += f"""      // {{
+        // imageSrc: "{image_src}",
+        // name: "{name}",
+        // description: "{role}",
+        // socialLinks: [
+{social_links.replace('        ', '        // ')}
+        // ]
+      // }},\n"""
+        else:
+            # 正常输出
+            ts_content += f"""      {{
+        imageSrc: "{image_src}",
         name: "{name}",
         description: "{role}",
         socialLinks: [
@@ -119,7 +143,8 @@ for sheet in sheet_names:
 
     ts_content += f"    ]\n  }},\n"
 
-ts_content += "];\n"
+ts_content += "];\n\n"
+ts_content += "export default teams;"
 
 # 写出到目标文件
 with open(ts_output_file, "w", encoding="utf-8") as file:

@@ -21,7 +21,7 @@ def update_key_organizers(hackathon_file_path, key_organizers_file_path, updated
         
         if 'Profile Photo' in key_organizers_df.columns and 'LinkedIn Profile' in key_organizers_df.columns and 'Email' in key_organizers_df.columns:
             key_organizers_df = key_organizers_df.merge(hackathon_df[['Email', 'Upload Your Profile Photo', 'LinkedIn Profile']], on='Email', how='left')
-            key_organizers_df.rename(columns={'Upload Your Profile Photo': 'Profile Photo'}, inplace=True)
+            key_organizers_df.rename(columns={'Upload Your Profile Photo': 'Profile Photo Y'}, inplace=True)
         
         if 'Name' in key_organizers_df.columns:
             key_organizers_df.drop_duplicates(subset=['Name'], keep='first', inplace=True)
