@@ -52,6 +52,12 @@ for sheet in sheet_names:
             if not linkedin_profile or pd.isna(linkedin_profile) or linkedin_profile.lower() in ["nan", "none", ""]:
                 log.write(f"Missing LinkedIn Profile: {name} ({email})\n")
 
+         # 第三个功能：如果 LinkedIn Profile 缺少 'https://'，则补全
+        if linkedin_profile and str(linkedin_profile).lower() not in ["nan", "none", ""]:
+            # 若不以 http:// 或 https:// 开头，就加上 https://
+            if not (linkedin_profile.startswith("http://") or linkedin_profile.startswith("https://")):
+                linkedin_profile = "https://" + linkedin_profile
+
         # 提取 email 前缀，用于生成图片名称
         email_prefix = email.split('@')[0]
         image_src = f"/images/our_teams/{sheet.replace(' ', '_')}/{email_prefix}.jpg"

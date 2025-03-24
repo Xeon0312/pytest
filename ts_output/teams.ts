@@ -25,7 +25,7 @@ const teams = [
         name: "Suhana Shrestha",
         description: "Chief of Staff",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/suhana-shrestha" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/suhana-shrestha" }
         ]
       },
     ]
@@ -71,7 +71,7 @@ const teams = [
         name: "Sanam Maharjan",
         description: "SWAG Officer",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/sanammaharjan01" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/sanammaharjan01" }
         ]
       },
       {
@@ -87,7 +87,7 @@ const teams = [
         name: "Nisal Chandana Ekanayake",
         description: "Manager, Event Catering ",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/nisal-ekanayake" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/nisal-ekanayake" }
         ]
       },
       {
@@ -135,7 +135,7 @@ const teams = [
         name: "Connor Liberman",
         description: "Camera Operator",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/connor-liberman-02a582274" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/connor-liberman-02a582274" }
         ]
       },
       {
@@ -143,7 +143,7 @@ const teams = [
         name: "Soumya Saraswati",
         description: "Show Caller",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/soumya-saraswati-33b0871a7" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/soumya-saraswati-33b0871a7" }
         ]
       },
       {
@@ -273,7 +273,7 @@ const teams = [
         name: "Kris Sadiasa",
         description: "  Student Success Director",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/khris-sadiasa-69710518b" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/khris-sadiasa-69710518b" }
         ]
       },
       {
@@ -289,7 +289,7 @@ const teams = [
         name: "Tomisin Jephthah Ojaokomo",
         description: "Discord & Ticketing System Manager",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/tomisin-ojaokomo" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/tomisin-ojaokomo" }
         ]
       },
       {
@@ -313,7 +313,7 @@ const teams = [
         name: "Utpal Manishchandra Prajapati",
         description: "Student Success Manager - Team Leadership",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/utpal-prajapati-191a391a8" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/utpal-prajapati-191a391a8" }
         ]
       },
       {
@@ -321,7 +321,7 @@ const teams = [
         name: "Dwayne Jude Saldanha",
         description: "Student Success Manager - Team Leadership",
         socialLinks: [
-        { icon: FaLinkedin, url: "linkedin.com/in/dwayne-jude-saldanha-39860a1b6" }
+        { icon: FaLinkedin, url: "https://linkedin.com/in/dwayne-jude-saldanha-39860a1b6" }
         ]
       },
       {
@@ -485,7 +485,7 @@ const teams = [
         name: "Mustafa Siddiqui",
         description: "Senior Back-End Developer",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/mu5h1e" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/mu5h1e" }
         ]
       },
       {
@@ -565,7 +565,7 @@ const teams = [
         name: "Osman Kahraman",
         description: "Backend Tester",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/osman-kahraman-2a6513220" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/osman-kahraman-2a6513220" }
         ]
       },
       {
@@ -651,7 +651,7 @@ const teams = [
         name: "Safal Maharjan",
         description: "Video Editor",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/safal-maharjan-704588249" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/safal-maharjan-704588249" }
         ]
       },
       {
@@ -713,7 +713,7 @@ const teams = [
         name: "Sanabanu Basir Patel (Sana)",
         description: "UI/UX Lead Designer",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/sana-patel-968b46342" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/sana-patel-968b46342" }
         ]
       },
       {
@@ -729,7 +729,7 @@ const teams = [
         name: "Zoe Lara Denise Lerin",
         description: "Graphics Designer",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/ zoe-lara-denise-lerin-7b94a634a" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/ zoe-lara-denise-lerin-7b94a634a" }
         ]
       },
       {
@@ -737,7 +737,7 @@ const teams = [
         name: "Dinh Quoc",
         description: "Graphics Designer ",
         socialLinks: [
-        { icon: FaLinkedin, url: "www.linkedin.com/in/dinh-quoc-to-b17b09191" }
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/dinh-quoc-to-b17b09191" }
         ]
       },
       {
@@ -775,7 +775,7 @@ const teams = [
         name: "Cleo Buenaventura",
         description: "Consultant",
         socialLinks: [
-        { icon: FaLinkedin, url: "linkedin.com/in/cleo-buenaventura" }
+        { icon: FaLinkedin, url: "https://linkedin.com/in/cleo-buenaventura" }
         ]
       },
     ]
