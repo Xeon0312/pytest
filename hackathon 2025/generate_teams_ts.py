@@ -77,7 +77,8 @@ def to_title_case_team_name(s: str) -> str:
     同时去掉末尾的 ' Team'
     """
     # 去掉末尾的 ' Team'
-    s = s.rstrip(' Team')
+    s = s.rstrip('TEAM')
+    
     # 先分割单词并做首字母大写
     words = s.split()
     words = [w.capitalize() for w in words]
@@ -92,7 +93,7 @@ def to_title_case_team_name(s: str) -> str:
     # 这里为了简单，直接做完全匹配
     if title_str.lower() == "leaders":
         title_str = "Leadership"
-
+    
     return title_str
 
 # ---------- 生成最终的 TypeScript 文件 ----------

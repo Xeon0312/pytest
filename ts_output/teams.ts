@@ -31,8 +31,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Operations Team",
-    teamDescription: "This is Operations Team's description.",
+    teamName: "Operations",
+    teamDescription: "This is Operations's description.",
     members: [
       {
         imageSrc: "/images/our_teams/OPERATIONS_TEAM/icmajam.jpg",
@@ -165,8 +165,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Finance Team",
-    teamDescription: "This is Finance Team's description.",
+    teamName: "Finance",
+    teamDescription: "This is Finance's description.",
     members: [
       {
         imageSrc: "/images/our_teams/FINANCE_TEAM/snajafi6.jpg",
@@ -179,8 +179,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Partner Experience Team",
-    teamDescription: "This is Partner Experience Team's description.",
+    teamName: "Partner Experience",
+    teamDescription: "This is Partner Experience's description.",
     members: [
       {
         imageSrc: "/images/our_teams/PARTNER_EXPERIENCE_TEAM/lhngo1.jpg",
@@ -265,8 +265,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Student Success Team",
-    teamDescription: "This is Student Success Team's description.",
+    teamName: "Student Success",
+    teamDescription: "This is Student Success's description.",
     members: [
       {
         imageSrc: "/images/our_teams/STUDENT_SUCCESS_TEAM/kalmodal.jpg",
@@ -399,8 +399,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Registration Team",
-    teamDescription: "This is Registration Team's description.",
+    teamName: "Registration",
+    teamDescription: "This is Registration's description.",
     members: [
       {
         imageSrc: "/images/our_teams/REGISTRATION_TEAM/ameya-mangesh.kokatay.jpg",
@@ -453,8 +453,8 @@ const teams = [
     ]
   },
   {
-    teamName: "IT Development Team",
-    teamDescription: "This is IT Development Team's description.",
+    teamName: "IT Development",
+    teamDescription: "This is IT Development's description.",
     members: [
       {
         imageSrc: "/images/our_teams/IT_DEVELOPMENT_TEAM/ramamania.jpg",
@@ -579,8 +579,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Marketing & Communications Team",
-    teamDescription: "This is Marketing & Communications Team's description.",
+    teamName: "Marketing & Communications",
+    teamDescription: "This is Marketing & Communications's description.",
     members: [
       {
         imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/vidhi236.jpg",
@@ -689,8 +689,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Creatives Team",
-    teamDescription: "This is Creatives Team's description.",
+    teamName: "Creatives",
+    teamDescription: "This is Creatives's description.",
     members: [
       {
         imageSrc: "/images/our_teams/CREATIVES_TEAM/lxhdao.jpg",
@@ -781,8 +781,8 @@ const teams = [
     ]
   },
   {
-    teamName: "Issue Management Team",
-    teamDescription: "This is Issue Management Team's description.",
+    teamName: "Issue Management",
+    teamDescription: "This is Issue Management's description.",
     members: [
       // {
         // imageSrc: "/images/our_teams/ISSUE_MANAGEMENT_TEAM/kohulan06.jpg",
