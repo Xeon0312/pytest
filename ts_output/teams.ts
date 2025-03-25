@@ -504,14 +504,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/aryan-sharma-682a46290" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/IT_DEVELOPMENT_TEAM/hshayan.jpg",
-        // name: "Heydari Shayan",
-        // description: "Front-End Developer",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/IT_DEVELOPMENT_TEAM/hshayan.jpg",
+        name: "Heydari Shayan",
+        description: "Front-End Developer",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/shayan-heydari-4a76b9212/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BaywOfnIhQh2Cs%2Fx9qC7xvg%3D%3D" }
+        ]
+      },
       {
         imageSrc: "/images/our_teams/IT_DEVELOPMENT_TEAM/ksuleimanov.jpg",
         name: "Khassan Suleimanov",
@@ -785,7 +785,7 @@ const teams = [
     teamDescription: "This is Issue Management Team's description.",
     members: [
       // {
-        // imageSrc: "/images/our_teams/ISSUE_MANAGEMENT_TEAM/kthevananthan.jpg",
+        // imageSrc: "/images/our_teams/ISSUE_MANAGEMENT_TEAM/kohulan06.jpg",
         // name: "Kohulan Thevananthan",
         // description: "Issue Management Director",
         // socialLinks: [

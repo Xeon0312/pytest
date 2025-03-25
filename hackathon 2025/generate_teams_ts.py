@@ -29,12 +29,6 @@ for sheet in sheet_names:
         print(f"Skipping sheet '{sheet}' due to missing essential columns.")
         continue
 
-    # 若缺失 'Profile Photo' 或 'LinkedIn Profile_y' 则补空列
-    if 'Profile Photo' not in df.columns:
-        df['Profile Photo'] = ""
-    if 'LinkedIn Profile_y' not in df.columns:
-        df['LinkedIn Profile_y'] = ""
-
     # 存放当前 sheet 的成员列表
     members_list = []
 
@@ -52,7 +46,7 @@ for sheet in sheet_names:
             if not linkedin_profile or pd.isna(linkedin_profile) or linkedin_profile.lower() in ["nan", "none", ""]:
                 log.write(f"Missing LinkedIn Profile: {name} ({email})\n")
 
-         # 第三个功能：如果 LinkedIn Profile 缺少 'https://'，则补全
+        # 第三个功能：如果 LinkedIn Profile 缺少 'https://'，则补全
         if linkedin_profile and str(linkedin_profile).lower() not in ["nan", "none", ""]:
             # 若不以 http:// 或 https:// 开头，就加上 https://
             if not (linkedin_profile.startswith("http://") or linkedin_profile.startswith("https://")):
@@ -80,7 +74,10 @@ def to_title_case_team_name(s: str) -> str:
     - "team hr" -> "Team Hr"
     - "IT dev"  -> "IT Dev"
     并且如果是 "Leaders"，改成 "Leadership"。
+    同时去掉末尾的 ' Team'
     """
+    # 去掉末尾的 ' Team'
+    s = s.rstrip(' Team')
     # 先分割单词并做首字母大写
     words = s.split()
     words = [w.capitalize() for w in words]
