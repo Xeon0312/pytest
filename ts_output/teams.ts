@@ -122,14 +122,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/haru-ai/" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/OPERATIONS_TEAM/onelson2.jpg",
-        // name: "Owen Nelson",
-        // description: "Audio Engineer",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/OPERATIONS_TEAM/onelson2.jpg",
+        name: "Owen Nelson",
+        description: "Audio Engineer",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/owen-nelson-19a940346" }
+        ]
+      },
       {
         imageSrc: "/images/our_teams/OPERATIONS_TEAM/cliberman.jpg",
         name: "Connor Liberman",
@@ -154,14 +154,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/sanjan-monga-b6054a328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/OPERATIONS_TEAM/smaahsan.jpg",
-        // name: "S M Abdullah Ahsan",
-        // description: "MC/Finale",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/OPERATIONS_TEAM/smaahsan.jpg",
+        name: "S M Abdullah Ahsan",
+        description: "MC/Finale",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/me?trk=p_mwlite_search_srp-secondary_nav" }
+        ]
+      },
     ]
   },
   {
@@ -193,7 +193,7 @@ const teams = [
       {
         imageSrc: "/images/our_teams/PARTNER_EXPERIENCE_TEAM/anarayanan-subramani.jpg",
         name: "Abhinaya Narayanan Subramanian",
-        description: "Project Control Officer. Partner Exp. ",
+        description: "Partner Exp. Manager",
         socialLinks: [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/nsabhinaya" }
         ]
@@ -380,14 +380,14 @@ const teams = [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/shaurya0908/" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/STUDENT_SUCCESS_TEAM/aj.adeebajaved.jpg",
-        // name: "Adeeba Javed",
-        // description: "Student Sucess Officer",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/STUDENT_SUCCESS_TEAM/aj.adeebajaved.jpg",
+        name: "Adeeba Javed",
+        description: "Student Sucess Officer",
+        socialLinks: [
+        { icon: FaLinkedin, url: "http://www.linkedin.com/in/adeejave" }
+        ]
+      },
       // {
         // imageSrc: "/images/our_teams/STUDENT_SUCCESS_TEAM/darrenbergado.edu.jpg",
         // name: "Darren Bergado",
@@ -426,14 +426,14 @@ const teams = [
         { icon: FaLinkedin, url: "http://linkedin.com/in/harmanjot-singh-05807820b" }
         ]
       },
-      // {
-        // imageSrc: "/images/our_teams/REGISTRATION_TEAM/rdollison.jpg",
-        // name: "Rowena Dollison",
-        // description: "Registration Officer",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/REGISTRATION_TEAM/rdollison.jpg",
+        name: "Rowena Dollison",
+        description: "Registration Officer",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/rowenadollison/" }
+        ]
+      },
       {
         imageSrc: "/images/our_teams/REGISTRATION_TEAM/kelango1.jpg",
         name: "Keerthivaasan Elango",
@@ -636,14 +636,6 @@ const teams = [
         description: "Content Creators",
         socialLinks: [
         { icon: FaLinkedin, url: "https://www.linkedin.com/in/aydasafiri" }
-        ]
-      },
-      {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/kmobina.jpg",
-        name: "Mobina Kazemi",
-        description: "Content Creators",
-        socialLinks: [
-        { icon: FaLinkedin, url: "http://linkedin.com/in/mobina-kazemi-396992311" }
         ]
       },
       {
