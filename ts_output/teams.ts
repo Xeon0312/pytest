@@ -579,11 +579,11 @@ const teams = [
     ]
   },
   {
-    teamName: "Marketing & Communications",
-    teamDescription: "This is Marketing & Communications's description.",
+    teamName: "Marketing &amp; Communications",
+    teamDescription: "This is Marketing &amp; Communications's description.",
     members: [
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/vidhi236.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/vidhi236.jpg",
         name: "Vidhi Mehta",
         description: "Marketing Director",
         socialLinks: [
@@ -591,7 +591,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/aa8.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/aa8.jpg",
         name: "Arafat Ahmed Ansari",
         description: "Project Manager, Marketing",
         socialLinks: [
@@ -599,7 +599,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/pavan108.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/pavan108.jpg",
         name: "Pavan Kumar",
         description: "Manager, Content Strategy",
         socialLinks: [
@@ -607,7 +607,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/amsharma1.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/amsharma1.jpg",
         name: "Aayushi Mahendra Sharma",
         description: "Content Lead",
         socialLinks: [
@@ -615,7 +615,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/nallamatishivani18.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/nallamatishivani18.jpg",
         name: "Shivani Nallamati ",
         description: "Copywriter",
         socialLinks: [
@@ -623,7 +623,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/mmozaffri.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/mmozaffri.jpg",
         name: "Mohammad Mozaffari",
         description: "Content Creators",
         socialLinks: [
@@ -631,7 +631,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/asafiri1.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/asafiri1.jpg",
         name: "Ayda Safiri",
         description: "Content Creators",
         socialLinks: [
@@ -639,7 +639,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/smaharjan34.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/smaharjan34.jpg",
         name: "Safal Maharjan",
         description: "Video Editor",
         socialLinks: [
@@ -647,7 +647,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/vlukhad.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/vlukhad.jpg",
         name: "Vanshil Lukhad",
         description: "Videographer/Video editor",
         socialLinks: [
@@ -655,7 +655,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/kali64.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/kali64.jpg",
         name: "Kaifee Ali",
         description: "Videographer/Video editor",
         socialLinks: [
@@ -663,7 +663,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/srajkumar9.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/srajkumar9.jpg",
         name: "Sandeep Rajkumar",
         description: "Videographer/Video editor",
         socialLinks: [
@@ -671,7 +671,7 @@ const teams = [
         ]
       },
       {
-        imageSrc: "/images/our_teams/MARKETING_&_COMMUNICATIONS_TEAM/jasiedu1.jpg",
+        imageSrc: "/images/our_teams/MARKETING_&amp;_COMMUNICATIONS_TEAM/jasiedu1.jpg",
         name: "Justice Asiedu",
         description: "Communications Officer",
         socialLinks: [
@@ -776,14 +776,14 @@ const teams = [
     teamName: "Issue Management",
     teamDescription: "This is Issue Management's description.",
     members: [
-      // {
-        // imageSrc: "/images/our_teams/ISSUE_MANAGEMENT_TEAM/kohulan06.jpg",
-        // name: "Kohulan Thevananthan",
-        // description: "Issue Management Director",
-        // socialLinks: [
-
-        // ]
-      // },
+      {
+        imageSrc: "/images/our_teams/ISSUE_MANAGEMENT_TEAM/kohulan06.jpg",
+        name: "Kohulan Thevananthan",
+        description: "Issue Management Director",
+        socialLinks: [
+        { icon: FaLinkedin, url: "https://www.linkedin.com/in/kohulan-thevananthan/" }
+        ]
+      },
     ]
   },
 ];
